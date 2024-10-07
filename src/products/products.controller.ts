@@ -1,4 +1,4 @@
-import { Body, Controller, Delete, Get, Post, Put } from '@nestjs/common';
+import { Body, Controller, Delete, Get, Param, Post, Put } from '@nestjs/common';
 import { ProductsService } from './products.service';
 import { ProductModel } from './productModel';
 
@@ -16,9 +16,9 @@ constructor(private readonly service: ProductsService) {}
     return this.service.postProducts(newProduct);
   }
 
-  @Put()
-  putProducts(): string {
-    return this.service.putProducts();
+  @Put(':id')
+  putProducts(@Body()newProduct: ProductModel, @Param('id')id: string): string {
+    return this.service.putProducts(newProduct,  id);
   }
   @Delete()
   deleteProducts(): string {

@@ -31,11 +31,11 @@ export class ProductsService {
             "price": product.price,
             "code": product.code
         }
-        this.products.push(newProduct)
+        this.products.push(product)
         return newProduct;
     }
 
-    putProducts(): string {
+    putProducts(newProduct: ProductModel, id: string): string {
         return ' Put Products';
     }
 
