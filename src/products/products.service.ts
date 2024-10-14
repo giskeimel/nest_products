@@ -24,6 +24,14 @@ export class ProductsService {
         return  this.products;
     }
 
+    getProductByName(name: string) {
+        for (const prod of  this.products) {
+            if (prod.name == name) {
+                return prod;
+            }
+        }
+    }
+
     postProducts(product: ProductModel) {
         let newProduct = {
             "id": product.id,

@@ -11,6 +11,11 @@ constructor(private readonly service: ProductsService) {}
     return this.service.getProducts();
   }
 
+  @Get(':id')
+  getProductByName(@Param('id') name: string) {
+    return this.service.getProductByName(name);
+  }
+
   @Post()
   postProducts(@Body()newProduct: ProductModel) {
     return this.service.postProducts(newProduct);
